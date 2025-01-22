@@ -26,6 +26,12 @@ export default function AboutPage() {
               <span className="text-gray-500">▼</span> pages
             </div>
             <div className="ml-4 space-y-1">
+            <Link
+                href="/"
+                className="folder-item block w-full text-left text-gray-400 hover:text-gray-300 transition-colors"
+              >
+                📄 homepage.tsx
+              </Link>
               <Link
                 href="/about"
                 className="folder-item block w-full text-left text-gray-400 hover:text-gray-300 transition-colors"
