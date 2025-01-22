@@ -190,7 +190,7 @@ export default function ExperiencesPage() {
                   <div className="space-y-4">
                     <div className="flex items-center gap-2">
                       <span className="text-green-400">const</span>
-                      <span className="text-blue-400">{experience.company.toLowerCase().replace(" ", "_")}</span>
+                      <span className="text-blue-400">{experience.company.toLowerCase().replaceAll(" ", "_")}</span>
                       <span className="text-gray-400">=</span>
                       <span className="text-orange-300">{`{`}</span>
                     </div>
