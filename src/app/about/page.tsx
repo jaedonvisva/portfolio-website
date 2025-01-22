@@ -19,7 +19,6 @@ export default function AboutPage() {
                 <div className="folder-item hover:text-gray-300 transition-colors">📄 bio.ts</div>
                 <div className="folder-item hover:text-gray-300 transition-colors">📄 skills.ts</div>
                 <div className="folder-item hover:text-gray-300 transition-colors">📄 education.ts</div>
-                <div className="folder-item hover:text-gray-300 transition-colors">📄 interests.ts</div>
               </div>
             </div>
           </div>
@@ -39,6 +38,12 @@ export default function AboutPage() {
                 className="folder-item block w-full text-left text-gray-400 hover:text-gray-300 transition-colors"
               >
                 📄 projects.tsx
+              </Link>
+              <Link
+                href="/experience"
+                className="folder-item block w-full text-left text-gray-400 hover:text-gray-300 transition-colors"
+              >
+                📄 experience.tsx
               </Link>
             </div>
           </div>

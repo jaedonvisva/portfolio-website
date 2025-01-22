@@ -8,6 +8,7 @@ const tabs = [
   { name: "_jaedon-visva", href: "/" },
   { name: "_about-me", href: "/about" },
   { name: "_projects", href: "/projects" },
+  { name: "_experience", href: "/experience" },
 ]
 
 export function TabNavigation() {

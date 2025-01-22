@@ -100,6 +100,12 @@ export default function ProjectsPage() {
               >
                 📄 projects.tsx
               </Link>
+              <Link
+                href="/experience"
+                className="folder-item block w-full text-left text-gray-400 hover:text-gray-300 transition-colors"
+              >
+                📄 experience.tsx
+              </Link>
             </div>
           </div>
         </div>
