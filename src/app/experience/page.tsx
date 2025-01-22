@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
 import { TabNavigation } from "@/components/TabNavigation"
+import { usePathname } from "next/navigation"
 
 const experiences = [
     {
@@ -115,6 +116,8 @@ const experiences = [
 
 
 export default function ExperiencesPage() {
+  const activeClass = "text-gray-300 bg-gray-800 rounded-md px-2 py-1 font-bold"; // Style for the active link
+  const inactiveClass = "text-gray-400 hover:text-gray-300 transition-colors";
   const [selectedExperience, setSelectedExperience] = useState<number | null>(null)
   const experienceRefs = useRef<Record<number, HTMLDivElement | null>>({})
 
@@ -125,11 +128,49 @@ export default function ExperiencesPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#09090b]">
-      <TabNavigation />
       <div className="flex flex-1">
         {/* Sidebar */}
         <div className="w-64 border-r border-gray-800 p-4">
           <div className="folder-structure">
+          <div className="mt-4 space-y-2">
+            <div className="flex items-center gap-2 text-gray-300">
+              <span className="text-gray-500">▼</span> pages
+            </div>
+            <div className="ml-4 space-y-1">
+            <Link
+                href="/"
+                className={`folder-item block w-full text-left ${
+                  usePathname() === "/" ? activeClass : inactiveClass
+                }`}
+              >
+                📄 homepage.tsx
+              </Link>
+              <Link
+                href="/about"
+                className={`folder-item block w-full text-left ${
+                  usePathname() === "/about" ? activeClass : inactiveClass
+                }`}
+              >
+                📄 about.tsx
+              </Link>
+              <Link
+                href="/projects"
+                className={`folder-item block w-full text-left ${
+                  usePathname() === "/projects" ? activeClass : inactiveClass
+                }`}
+              >
+                📄 projects.tsx
+              </Link>
+              <Link
+                href="/experience"
+                className={`folder-item block w-full text-left ${
+                  usePathname() === "/experience" ? activeClass : inactiveClass
+                }`}
+              >
+                📄 experience.tsx
+              </Link>
+            </div>
+          </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-gray-300">
                 <span className="text-gray-500">▼</span> experience
@@ -147,37 +188,6 @@ export default function ExperiencesPage() {
                   </button>
                 ))}
               </div>
-            </div>
-          </div>
-          <div className="mt-4 space-y-2">
-            <div className="flex items-center gap-2 text-gray-300">
-              <span className="text-gray-500">▼</span> pages
-            </div>
-            <div className="ml-4 space-y-1">
-            <Link
-                href="/"
-                className="folder-item block w-full text-left text-gray-400 hover:text-gray-300 transition-colors"
-              >
-                📄 homepage.tsx
-              </Link>
-              <Link
-                href="/about"
-                className="folder-item block w-full text-left text-gray-400 hover:text-gray-300 transition-colors"
-              >
-                📄 about.tsx
-              </Link>
-              <Link
-                href="/projects"
-                className="folder-item block w-full text-left text-gray-400 hover:text-gray-300 transition-colors"
-              >
-                📄 projects.tsx
-              </Link>
-              <Link
-                href="/experience"
-                className="folder-item block w-full text-left text-gray-400 hover:text-gray-300 transition-colors"
-              >
-                📄 experience.tsx
-              </Link>
             </div>
           </div>
         </div>
