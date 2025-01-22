@@ -16,6 +16,7 @@ const projects = [
       "Flask web app integrating Spotify Web API for collaborative playlist creation, voting, and leaderboard features.",
     image: "/trendify.png?height=200&width=400",
     github: "https://github.com/jaedonvisva/trendify",
+    stack: ["Python", "Flask", "Spotify API", "MongoDB"],
   },
   {
     id: 2,
@@ -24,6 +25,8 @@ const projects = [
       "A block-based coding interface for developing in the BCI space, designed to remove the barrier of entry into the space.",
     image: "/neuroblocks.png?height=200&width=400",
     github: "https://github.com/hareshgoyal06/neuroblock",
+    stack: ["React", "TypeScript", "Blockly", "Brainflow", "JavaScript", "Flask", "Python"],
+    demo: "https://www.youtube.com/watch?v=j6_oXbUtO08",
   },
   {
     id: 3,
@@ -32,6 +35,7 @@ const projects = [
       "Real-time computer vision application that utilizes OpenCV and Mediapipe to implement gesture-based interactions using PyAutoGUI for seamless integration with the desktop environment.",
     image: "/placeholder.svg?height=200&width=400",
     github: "https://github.com/jaedonvisva/aircursor",
+    stack: ["Python", "OpenCV", "Mediapipe", "PyAutoGUI"],
   },
   {
     id: 4,
@@ -40,6 +44,7 @@ const projects = [
       "An LLM-powered platform using Cohere models to allow users to find hackathon team members, project members, and freelancers.",
     image: "/mesh.png?height=200&width=400",
     github: "https://github.com/jaedonvisva/mesh",
+    stack: ["Next.js", "TypeScript", "Cohere", "Python", "Flask", "MongoDB"],
   },
 ]
 
@@ -57,22 +62,22 @@ export default function ProjectsPage() {
       <TabNavigation />
       <div className="flex flex-1">
         {/* Sidebar */}
-        <div className="w-64 border-r border-gray-800 p-4 sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto">
+        <div className="w-64 border-r border-gray-800 p-4">
           <div className="folder-structure">
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-gray-300">
                 <span className="text-gray-500">▼</span> projects
               </div>
-              <div className="ml-4 space-y-1">
+              <div className="ml-4 space-y-1 text-gray-400">
                 {projects.map((project) => (
                   <button
                     key={project.id}
                     className={`folder-item block w-full text-left ${
-                      selectedProject === project.id ? "font-bold text-gray-200" : "text-gray-400"
+                      selectedProject === project.id ? "text-gray-200" : "text-gray-400"
                     } hover:text-gray-300 transition-colors`}
                     onClick={() => handleSidebarClick(project.id)}
                   >
-                    📄 {project.title.toLowerCase().replace(" ", "-")}
+                    📄 {project.title.toLowerCase().replace(" ", "-")}.ts
                   </button>
                 ))}
               </div>
@@ -98,12 +103,9 @@ export default function ProjectsPage() {
             </div>
           </div>
         </div>
-
         {/* Main content */}
-        <div className="flex-1 p-6 overflow-y-auto">
+        <div className="flex-1 p-6 font-mono">
           <div className="space-y-4">
-            <div className="code-line text-gray-400"> * Projects *</div>
-
             <div className="space-y-8 mt-4">
               {projects.map((project) => (
                 <Card
@@ -113,33 +115,54 @@ export default function ProjectsPage() {
                     projectRefs.current[project.id] = el
                   }}
                 >
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="relative h-[200px] md:w-1/2">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover rounded-md"
-                      />
-                    </div>
-                    <div className="md:w-1/2 space-y-4">
-                      <h2 className="text-xl font-semibold text-gray-200">{project.title}</h2>
-                      <p className="text-sm text-gray-400">{project.description}</p>
-                      <div className="space-y-2">
-                        <h3 className="text-sm text-gray-400">Technologies</h3>
-                        <div className="flex flex-wrap gap-2">
-                          <Badge variant="secondary">React</Badge>
-                          <Badge variant="secondary">Next.js</Badge>
-                          <Badge variant="secondary">Tailwind CSS</Badge>
-                        </div>
+                  <div className="flex flex-col-reverse md:flex-row gap-6">
+                    <div className="md:w-2/5 space-y-4">
+                      <div className="flex items-center gap-2">
+                        <span className="text-green-400">const</span>
+                        <span className="text-blue-400">{project.title.toLowerCase().replace(" ", "_")}</span>
+                        <span className="text-gray-400">=</span>
+                        <span className="text-orange-300">{`{`}</span>
                       </div>
-                      <Button
-                        variant="secondary"
-                        className="w-full bg-[#2a2f3a] text-gray-300 hover:bg-[#3a3f4a] hover:text-gray-200"
-                        onClick={() => window.open(project.github, "_blank")}
-                      >
-                        view-project-on-github
-                      </Button>
+                      <div className="ml-4 space-y-2 text-gray-300">
+                        <div>
+                          title: <span className="text-green-300">"{project.title}"</span>,
+                        </div>
+                        <div>
+                          description: <span className="text-green-300">"{project.description}"</span>,
+                        </div>
+                        <div className="flex items-start">
+                          <span className="mr-2">stack: [</span>
+                          <div className="flex flex-wrap gap-2">
+                            {project.stack.map((tech, index) => (
+                              <Badge key={tech} variant="outline" className="bg-[#1a1a1a]">
+                                {tech}
+                                {index < project.stack.length - 1 && ","}
+                              </Badge>
+                            ))}
+                          </div>
+                          <span>],</span>
+                        </div>
+                        <div>
+                          github: <span className="text-green-300"><a href={project.github} target="_blank">"{project.github}"</a></span>,
+                        </div>
+                        {project.demo && (
+                          <div>
+                            demo: <span className="text-green-300"><a href={project.demo} target="_blank">"{project.demo}"</a></span>,
+                          </div>
+                        )}
+                      </div>
+                      <div className="text-orange-300">{`}`}</div>
+                      
+                    </div>
+                    <div className="md:w-3/5">
+                      <div className="relative h-[400px] w-full">
+                        <Image
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          fill
+                          className="object-cover rounded-md"
+                        />
+                      </div>
                     </div>
                   </div>
                 </Card>
