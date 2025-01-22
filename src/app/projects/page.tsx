@@ -33,7 +33,6 @@ const projects = [
     title: "AirCursor",
     description:
       "Real-time computer vision application that utilizes OpenCV and Mediapipe to implement gesture-based interactions using PyAutoGUI for seamless integration with the desktop environment.",
-    image: "/placeholder.svg?height=200&width=400",
     github: "https://github.com/jaedonvisva/aircursor",
     stack: ["Python", "OpenCV", "Mediapipe", "PyAutoGUI"],
   },
@@ -115,63 +114,65 @@ export default function ProjectsPage() {
             <div className="space-y-8 mt-4">
               {projects.map((project) => (
                 <Card
-                  key={project.id}
-                  className="p-6 bg-[#09090b] border-gray-800"
-                  ref={(el) => {
-                    projectRefs.current[project.id] = el
-                  }}
-                >
-                  <div className="flex flex-col-reverse md:flex-row gap-6">
-                    <div className="md:w-2/5 space-y-4">
-                      <div className="flex items-center gap-2">
-                        <span className="text-green-400">const</span>
-                        <span className="text-blue-400">{project.title.toLowerCase().replace(" ", "_")}</span>
-                        <span className="text-gray-400">=</span>
-                        <span className="text-orange-300">{`{`}</span>
-                      </div>
-                      <div className="ml-4 space-y-2 text-gray-300">
-                        <div>
-                          title: <span className="text-green-300">"{project.title}"</span>,
-                        </div>
-                        <div>
-                          description: <span className="text-green-300">"{project.description}"</span>,
-                        </div>
-                        <div className="flex items-start">
-                          <span className="mr-2">stack: [</span>
-                          <div className="flex flex-wrap gap-2">
-                            {project.stack.map((tech, index) => (
-                              <Badge key={tech} variant="outline" className="bg-[#1a1a1a]">
-                                {tech}
-                                {index < project.stack.length - 1 && ","}
-                              </Badge>
-                            ))}
-                          </div>
-                          <span>],</span>
-                        </div>
-                        <div>
-                          github: <span className="text-green-300"><a href={project.github} target="_blank">"{project.github}"</a></span>,
-                        </div>
-                        {project.demo && (
-                          <div>
-                            demo: <span className="text-green-300"><a href={project.demo} target="_blank">"{project.demo}"</a></span>,
-                          </div>
-                        )}
-                      </div>
-                      <div className="text-orange-300">{`}`}</div>
-                      
+                key={project.id}
+                className="p-6 bg-[#09090b] border-gray-800"
+                ref={(el) => {
+                  projectRefs.current[project.id] = el
+                }}
+              >
+                <div className={`flex ${project.image ? 'flex-col-reverse md:flex-row gap-6' : 'flex-col'} `}>
+                  <div className={`${project.image ? 'md:w-2/5' : 'w-full'} space-y-4`}>
+                    <div className="flex items-center gap-2">
+                      <span className="text-green-400">const</span>
+                      <span className="text-blue-400">{project.title.toLowerCase().replace(" ", "_")}</span>
+                      <span className="text-gray-400">=</span>
+                      <span className="text-orange-300">{`{`}</span>
                     </div>
+                    <div className="ml-4 space-y-2 text-gray-300">
+                      <div>
+                        title: <span className="text-green-300">"{project.title}"</span>,
+                      </div>
+                      <div>
+                        description: <span className="text-green-300">"{project.description}"</span>,
+                      </div>
+                      <div className="flex items-start">
+                        <span className="mr-2">stack: [</span>
+                        <div className="flex flex-wrap gap-2">
+                          {project.stack.map((tech, index) => (
+                            <Badge key={tech} variant="outline" className="bg-[#1a1a1a]">
+                              {tech}
+                              {index < project.stack.length - 1}
+                            </Badge>
+                          ))}
+                        </div>
+                        <span>],</span>
+                      </div>
+                      <div>
+                        github: <span className="text-green-300"><a href={project.github} target="_blank">"{project.github}"</a></span>,
+                      </div>
+                      {project.demo && (
+                        <div>
+                          demo: <span className="text-green-300"><a href={project.demo} target="_blank">"{project.demo}"</a></span>,
+                        </div>
+                      )}
+                    </div>
+                    <div className="text-orange-300">{`}`}</div>
+                  </div>
+                  {project.image && (
                     <div className="md:w-3/5">
                       <div className="relative h-[400px] w-full">
                         <Image
-                          src={project.image || "/placeholder.svg"}
+                          src={project.image}
                           alt={project.title}
                           fill
                           className="object-cover rounded-md"
                         />
                       </div>
                     </div>
-                  </div>
-                </Card>
+                  )}
+                </div>
+              </Card>
+              
               ))}
             </div>
           </div>

@@ -17,7 +17,6 @@ export default function AboutPage() {
               </div>
               <div className="ml-4 space-y-1 text-gray-400">
                 <div className="folder-item hover:text-gray-300 transition-colors">📄 bio.ts</div>
-                <div className="folder-item hover:text-gray-300 transition-colors">📄 skills.ts</div>
                 <div className="folder-item hover:text-gray-300 transition-colors">📄 education.ts</div>
               </div>
             </div>
@@ -75,54 +74,6 @@ export default function AboutPage() {
                   <div className="text-orange-300">{`}`}</div>
                 </div>
               </Card>
-
-              {/* Skills Section */}
-              <Card className="p-6 bg-[#09090b] border-gray-800">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">const</span>
-                    <span className="text-blue-400">skills</span>
-                    <span className="text-gray-400">=</span>
-                    <span className="text-orange-300">{`{`}</span>
-                  </div>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6 ml-4">
-                    <div className="space-y-2">
-                      <div className="text-gray-300">programming_languages: [</div>
-                      <div className="flex flex-wrap gap-2 ml-4">
-                        <Badge variant="outline" className="bg-[#1a1a1a]">Python</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">JavaScript</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">TypeScript</Badge>
-                      </div>
-                      <div className="text-gray-300">],</div>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="text-gray-300">database: [</div>
-                      <div className="flex flex-wrap gap-2 ml-4">
-                        <Badge variant="outline" className="bg-[#1a1a1a]">PostgreSQL</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">MongoDB</Badge>
-                      </div>
-                      <div className="text-gray-300">],</div>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="text-gray-300">frameworks_and_libraries: [</div>
-                      <div className="flex flex-wrap gap-2 ml-4">
-                        <Badge variant="outline" className="bg-[#1a1a1a]">Flask</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">React</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">Next.js</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">Django</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">Bootstrap</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">Pandas</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">NumPy</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">OpenCV</Badge>
-                        <Badge variant="outline" className="bg-[#1a1a1a]">Matplotlib</Badge>
-                      </div>
-                      <div className="text-gray-300">],</div>
-                    </div>
-                  </div>
-                  <div className="text-orange-300">{`}`}</div>
-                </div>
-              </Card>
-
 
               {/* Education Section */}
               <Card className="p-6 bg-[#09090b] border-gray-800">

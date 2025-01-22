@@ -213,7 +213,7 @@ export default function ExperiencesPage() {
                           {experience.stack.map((tech, index) => (
                             <Badge key={tech} variant="outline" className="bg-[#1a1a1a]">
                               {tech}
-                              {index < experience.stack.length - 1 && ","}
+                              {index < experience.stack.length - 1}
                             </Badge>
                           ))}
                         </div>
