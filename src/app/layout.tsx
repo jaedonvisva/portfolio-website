@@ -5,8 +5,7 @@ import "./globals.css"
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Developer Portfolio",
-  description: "A modern developer portfolio",
+  title: "Jaedon Visva",
 }
 
 export default function RootLayout({
@@ -16,6 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        {/* Link to the favicon */}
+        <link rel="icon" href="/letter-j.png" />
+      </head>
       <body className={jetbrainsMono.className}>{children}</body>
     </html>
   )
