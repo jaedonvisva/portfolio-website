@@ -4,7 +4,6 @@ import { useState, useRef } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
-import { TabNavigation } from "@/components/TabNavigation"
 import { usePathname } from "next/navigation"
 
 const experiences = [

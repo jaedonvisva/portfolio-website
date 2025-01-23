@@ -4,8 +4,6 @@ import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
 import { usePathname } from "next/navigation" // Import useRouter
-import { TabNavigation } from "@/components/TabNavigation"
-
 export default function AboutPage() {
   const activeClass = "text-gray-300 bg-gray-800 rounded-md px-2 py-1 font-bold"; // Style for the active link
   const inactiveClass = "text-gray-400 hover:text-gray-300 transition-colors";

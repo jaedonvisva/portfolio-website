@@ -6,7 +6,6 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { TabNavigation } from "@/components/TabNavigation"
 import { usePathname } from "next/navigation"
 
 const projects = [

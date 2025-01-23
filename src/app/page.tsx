@@ -3,7 +3,6 @@
 import { Github, Mail, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { TabNavigation } from "@/components/TabNavigation";
 import { usePathname } from "next/navigation";
 
 export default function Home() {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { JetBrains_Mono } from "next/font/google"
 import "./globals.css"
+import { TabBar } from "@/components/tab-bar"
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
@@ -16,10 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        {/* Link to the favicon */}
         <link rel="icon" href="/letter-j.png" />
       </head>
-      <body className={jetbrainsMono.className}>{children}</body>
+      <body className={jetbrainsMono.className}>
+        <TabBar />
+        {children}
+      </body>
     </html>
   )
 }
