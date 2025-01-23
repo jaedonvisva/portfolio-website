@@ -35,7 +35,7 @@ export function TabBar() {
   }
 
   return (
-    <div className="flex bg-gray-800 text-white">
+    <div className="flex bg-black text-white border-b border-gray-700">
       {tabs.map((tab) => (
         <div key={tab.path} className="flex items-center px-4 py-2 border-r border-gray-700">
           <Link href={tab.path} className={`mr-2 ${pathname === tab.path ? "text-blue-400" : ""}`}>
